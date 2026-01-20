@@ -1,82 +1,82 @@
 @echo off
 echo ============================================================
-echo             建设项目经济评价系统 - 快速启动
+echo         Financial Analysis System - Quick Start
 echo ============================================================
 echo.
 
-REM 检查Python是否安装
+REM Check Python installation
 python --version >nul 2>&1
 if %errorlevel% neq 0 (
-    echo [错误] 未检测到Python，请先安装Python 3.8+
-    echo 下载地址: https://www.python.org/downloads/
+    echo [ERROR] Python not detected, please install Python 3.8+
+    echo Download: https://www.python.org/downloads/
     pause
     exit /b 1
 )
 
-echo [步骤 1/5] 检查Python环境...
+echo [Step 1/5] Checking Python environment...
 python --version
 echo.
 
-REM 检查虚拟环境
+REM Check virtual environment
 if exist ".venv\Scripts\activate.bat" (
-    echo [步骤 2/5] 检测到虚拟环境，正在激活...
+    echo [Step 2/5] Virtual environment detected, activating...
     call .venv\Scripts\activate.bat
-    echo ✓ 虚拟环境已激活
+    echo [OK] Virtual environment activated
     echo.
 ) else (
-    echo [步骤 2/5] 未检测到虚拟环境，跳过
+    echo [Step 2/5] Virtual environment not detected, skipped
     echo.
 )
 
-REM 检查依赖
-echo [步骤 3/5] 检查依赖包...
+REM Check dependencies
+echo [Step 3/5] Checking dependency packages...
 pip show streamlit >nul 2>&1
 if %errorlevel% neq 0 (
-    echo 未检测到依赖包，正在安装...
+    echo Dependencies not detected, installing...
     echo.
     pip install -r requirements.txt
     if %errorlevel% neq 0 (
-        echo [错误] 依赖包安装失败
+        echo [ERROR] Dependency installation failed
         pause
         exit /b 1
     )
     echo.
-    echo ✓ 依赖包安装完成
+    echo [OK] Dependencies installed
     echo.
 ) else (
-    echo ✓ 依赖包已安装
+    echo [OK] Dependencies already installed
     echo.
 )
 
-REM 创建必要的目录
+REM Create necessary directories
 if not exist ".streamlit" mkdir ".streamlit"
 if not exist "outputs" mkdir "outputs"
 
-echo [步骤 4/5] 正在启动应用程序...
+echo [Step 4/5] Starting application...
 echo.
 
-REM 启动Streamlit应用
+REM Start Streamlit app
 echo ============================================================
-echo 应用程序正在启动中...
-echo 访问地址: http://localhost:8501
+echo Application is starting...
+echo URL: http://localhost:8501
 echo ============================================================
 echo.
-echo [提示] 按 Ctrl+C 停止应用程序
+echo [Tip] Press Ctrl+C to stop the application
 echo.
 
 streamlit run app.py
 
-REM 如果程序异常退出
+REM If application exits abnormally
 if %errorlevel% neq 0 (
     echo.
     echo ============================================================
-    echo [错误] 应用程序启动失败
+    echo [ERROR] Application startup failed
     echo ============================================================
     echo.
-    echo 请检查以下问题：
-    echo 1. 确保已安装所有依赖包（pip install -r requirements.txt）
-    echo 2. 确保端口8501未被占用
-    echo 3. 检查Python版本是否符合要求（3.8+）
+    echo Please check the following issues:
+    echo 1. Ensure all dependencies are installed (pip install -r requirements.txt)
+    echo 2. Ensure port 8501 is not in use
+    echo 3. Check Python version (3.8+ required)
     echo.
     pause
     exit /b 1
