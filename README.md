@@ -38,14 +38,26 @@
 
 ## 快速开始
 
-### 环境要求
-- Python 3.8+
-- Streamlit 1.28+
-- pandas 2.0+
-- numpy 1.24+
-- openpyxl 3.1+
+### 🚀 一键启动
 
-### 安装依赖
+**Windows用户**:
+```bash
+# 双击运行
+start.bat
+```
+
+**Linux/macOS用户**:
+```bash
+# 给脚本添加执行权限
+chmod +x start.sh
+
+# 运行脚本
+./start.sh
+```
+
+详细启动说明请查看：[快速启动指南](QUICK_START.md)
+
+### 📦 安装依赖
 
 ```bash
 pip install -r requirements.txt
