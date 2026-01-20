@@ -289,7 +289,65 @@ streamlit run app.py
 4. **报表定制**: 自定义报表格式
 5. **数据可视化**: 图表展示
 
-## 系统要求
+## 🔧 故障排除
+
+### ModuleNotFoundError: No module named 'openpyxl'
+
+**问题原因**: 虚拟环境中缺少依赖包
+
+**解决方案1**: 运行依赖检查脚本
+```bash
+# 检查依赖安装状态
+python check_dependencies.py
+
+# 如果依赖缺失，会自动提示安装命令
+```
+
+**解决方案2**: 重新安装依赖
+```bash
+# 进入项目目录
+cd H:\GIT\JZGCCW-open
+
+# 激活虚拟环境（Windows）
+.venv\Scripts\activate
+
+# 重新安装所有依赖
+pip install -r requirements.txt --force-reinstall
+```
+
+**解决方案3**: 使用快速启动脚本
+```bash
+# Windows: 双击 start.bat
+# Linux/macOS: ./start.sh
+```
+
+启动脚本会自动检查和安装依赖包。
+
+### 端口被占用
+
+**问题**: 8501端口已被其他程序占用
+
+**解决方案**:
+```bash
+# Windows: 查找占用端口的进程
+netstat -ano | findstr :8501
+
+# 使用其他端口启动
+streamlit run app.py --server.port 8502
+
+# Linux/macOS: 查找占用端口的进程
+lsof -i :8501
+```
+
+### 编码错误（Windows）
+
+**问题**: 中文乱码或编码错误
+
+**解决方案**:
+```cmd
+# 设置命令行编码为UTF-8
+chcp 65001
+```
 
 - Python 3.8+
 - Streamlit 1.28+
