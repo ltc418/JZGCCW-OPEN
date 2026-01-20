@@ -1,6 +1,15 @@
 # 建设项目经济评价系统
 
-> 一个基于Python的财务分析系统，完全按照《建设项目经济评价方法与参数(第三版)》标准实现
+<div align="center">
+
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)]
+
+**一个基于Python的财务分析系统，完全按照《建设项目经济评价方法与参数(第三版)》标准实现**
+
+</div>
 
 ## 项目简介
 
